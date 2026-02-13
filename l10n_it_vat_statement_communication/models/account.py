@@ -9,3 +9,5 @@ class AccountTax(models.Model):
     )
 
     vsc_exclude_vat = fields.Boolean(string="Exclude from VAT payable / deducted")
+
+    date_vat_settlement = fields.Date(string="Date vat settlement")
