@@ -15,6 +15,9 @@ class AccountMove(models.Model):
         string="Declarations of intent",
     )
 
+    def select_manually_declarations(self):
+        return False
+
 
 class AccountMoveLine(models.Model):
     _inherit = "account.move.line"
