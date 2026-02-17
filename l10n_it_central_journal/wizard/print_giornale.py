@@ -3,7 +3,7 @@
 from datetime import timedelta
 
 from odoo import _, api, fields, models
-from odoo.exceptions import Warning as UserError
+from odoo.exceptions import UserError
 from odoo.tools.misc import flatten
 
 
