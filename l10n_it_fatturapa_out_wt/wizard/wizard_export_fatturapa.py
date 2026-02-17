@@ -1,7 +1,7 @@
 from odoo import api, models
 from odoo.tools.float_utils import float_round
 
-from odoo.addons.l10n_it_account.tools.account_tools import encode_for_export
+#from odoo.addons.l10n_it_account.tools.account_tools import encode_for_export
 from odoo.addons.l10n_it_fatturapa_out.wizard.wizard_export_fatturapa import (
     format_numbers,
 )
@@ -38,10 +38,7 @@ class WizardExportFatturapa(models.TransientModel):
                     "Imposta": 0.0,
                     "EsigibilitaIVA": tax_id.payability,
                 }
-                if tax_id.law_reference:
-                    res[key]["RiferimentoNormativo"] = encode_for_export(
-                        tax_id.law_reference, 100
-                    )
+                
         return res
 
     @api.model
