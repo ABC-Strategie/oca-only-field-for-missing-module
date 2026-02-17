@@ -1,12 +1,8 @@
 from odoo import api, models
 from odoo.tools.float_utils import float_round
 
-#from odoo.addons.l10n_it_account.tools.account_tools import encode_for_export
-from odoo.addons.l10n_it_fatturapa_out.wizard.wizard_export_fatturapa import (
-    format_numbers,
-)
 
-
+   
 class WizardExportFatturapa(models.TransientModel):
     WT_TAX_CODE = {"inps": "RT03", "enasarco": "RT04", "enpam": "RT05", "other": "RT06"}
 
@@ -30,7 +26,7 @@ class WizardExportFatturapa(models.TransientModel):
                 res[key]["ImponibileImporto"] = float_round(base_amount, 2)
             else:
                 res[key] = {
-                    "AliquotaIVA": format_numbers(0.0),
+                    "AliquotaIVA": 0.0,
                     "Natura": tax_id.kind_id.code,
                     # possibile tag (non gestito)
                     # 'Arrotondamento':'',
