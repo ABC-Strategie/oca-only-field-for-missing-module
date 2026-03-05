@@ -3,7 +3,7 @@
 
 {
     "name": "ITA - Libro giornale",
-    "version": "18.0.0.0.1",
+    "version": "19.0.0.0.1",
     "development_status": "Beta",
     "category": "Localization/Italy",
     "author": "Gianmarco Conte - Dinamiche Aziendali srl, "

@@ -9,7 +9,7 @@
     "author": "Dinamiche Aziendali srl",
     "website": "https://github.com/DinamicheAziendali/certificazione-unica",
     "category": "Localization/Italy",
-    "version": "18.0.1.0.1",
+    "version": "19.0.0.0.1",
     "license": "AGPL-3",
     "depends": [
         "l10n_it_cu",

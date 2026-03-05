@@ -2,7 +2,7 @@
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
 {
     "name": "Certificazione Unica",
-    "version": "18.0.1.0.1",
+    "version": "19.0.0.0.1",
     "category": "Localization/Italy",
     "summary": "Modulo per la gestione della Certificazione Unica",
     "author": "Openforce",
