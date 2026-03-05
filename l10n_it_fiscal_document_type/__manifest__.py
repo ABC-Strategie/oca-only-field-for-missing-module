@@ -19,7 +19,7 @@
         # "views/account_move_view.xml",
         # "views/account_view.xml",
         "data/fiscal.document.type.csv",
-        # "security/ir.model.access.csv",
+        "security/ir.model.access.csv",
     ],
     "installable": True,
 }
