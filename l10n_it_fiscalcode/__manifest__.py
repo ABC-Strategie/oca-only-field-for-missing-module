@@ -17,9 +17,6 @@
     "website": "https://github.com/OCA/l10n-italy",
     "license": "AGPL-3",
     "depends": ["account"],
-    # "external_dependencies": {
-    #     "python": ["codicefiscale"],
-    # },
     "data": [
         # "security/ir.model.access.csv",
         # "data/res.city.it.code.csv",

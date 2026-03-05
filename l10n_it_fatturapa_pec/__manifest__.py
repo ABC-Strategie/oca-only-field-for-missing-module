@@ -31,9 +31,4 @@
         # "data/sdi_channel_demo.xml",
     ],
     "installable": True,
-    "external_dependencies": {
-        "python": [
-            "mock",
-        ],
-    },
 }

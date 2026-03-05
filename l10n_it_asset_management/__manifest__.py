@@ -52,10 +52,5 @@
     # },
     "development_status": "Beta",
     "installable": True,
-    "external_dependencies": {
-        "python": [
-            "openupgradelib",
-        ],
-    },
     # "pre_init_hook": "pre_absorb_old_module",
 }
