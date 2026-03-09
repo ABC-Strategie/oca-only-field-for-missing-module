@@ -46,9 +46,9 @@ class ResPartner(models.Model):
     )
     electronic_invoice_subjected = fields.Boolean("Enable electronic invoicing")
     electronic_invoice_obliged_subject = fields.Boolean("Obliged Subject")
-    electronic_invoice_data_complete = fields.Boolean(
+    #electronic_invoice_data_complete = fields.Boolean(
         # compute="_compute_electronic_invoice_data_complete"
-    )
+    #)
 
     electronic_invoice_no_contact_update = fields.Boolean(
         "Do not update the contact from Electronic Invoice Details"
