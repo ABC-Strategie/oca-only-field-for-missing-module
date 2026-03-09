@@ -8,7 +8,7 @@ from datetime import datetime
 
 from odoo import api, fields, models
 from odoo.exceptions import UserError
-from odoo.fields import first
+#from odoo.fields import first
 from odoo.osv import expression
 from odoo.tools import float_is_zero, frozendict
 from odoo.tools.translate import _
@@ -469,7 +469,7 @@ class WizardImportFatturapa(models.TransientModel):
         tax_model = self.env["account.tax"]
         if default_taxes_ids is not None:
             default_taxes = tax_model.browse(default_taxes_ids)
-            default_tax = first(default_taxes)
+            default_tax = None #first(default_taxes)
         else:
             default_tax = tax_model.browse()
         return default_tax
@@ -495,7 +495,7 @@ class WizardImportFatturapa(models.TransientModel):
             tax_domain,
             order="sequence",
         )
-        account_tax = first(account_taxes)
+        account_tax = None #first(account_taxes)
         if not account_taxes:
             self.log_inconsistency(
                 _(
@@ -536,7 +536,7 @@ class WizardImportFatturapa(models.TransientModel):
             tax_domain,
             order="sequence",
         )
-        account_tax = first(account_taxes)
+        account_tax = None #first(account_taxes)
         if not account_taxes:
             self.log_inconsistency(
                 _(
@@ -603,7 +603,7 @@ class WizardImportFatturapa(models.TransientModel):
         if found_supplier_infos:
             products = found_supplier_infos.mapped("product_id")
             if len(products) == 1:
-                product = first(products)
+                product = None #first(products)
             else:
                 templates = found_supplier_infos.mapped("product_tmpl_id")
                 if len(templates) == 1:
