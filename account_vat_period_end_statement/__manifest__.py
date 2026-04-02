@@ -31,11 +31,11 @@
         # "views/config.xml",
         # "views/account_view.xml",
     ],
-    "assets": {
-        "web.assets_backend": [
-            "account_vat_period_end_statement/static/src/css/"
-            "account_vat_period_end_statement.css",
-        ],
-    },
+    #"assets": {
+    #    "web.assets_backend": [
+    #        "account_vat_period_end_statement/static/src/css/"
+    #        "account_vat_period_end_statement.css",
+    #    ],
+    #},
     "installable": True,
 }
