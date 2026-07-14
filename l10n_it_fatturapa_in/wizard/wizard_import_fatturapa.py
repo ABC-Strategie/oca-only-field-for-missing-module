@@ -9,7 +9,7 @@ from datetime import datetime
 from odoo import api, fields, models
 from odoo.exceptions import UserError
 #from odoo.fields import first
-from odoo.osv import expression
+from odoo.fields import Domain
 from odoo.tools import float_is_zero, frozendict
 from odoo.tools.translate import _
 
@@ -483,7 +483,7 @@ class WizardImportFatturapa(models.TransientModel):
     def _get_zero_kind_account_tax(self, Natura):
         tax_amount = 0
         tax_domain = self._get_account_tax_domain(tax_amount)
-        tax_domain = expression.AND(
+        tax_domain = Domain.AND(
             [
                 tax_domain,
                 [
@@ -522,7 +522,7 @@ class WizardImportFatturapa(models.TransientModel):
 
     def _get_amount_account_tax(self, tax_amount):
         tax_domain = self._get_account_tax_domain(tax_amount)
-        tax_domain = expression.AND(
+        tax_domain = Domain.AND(
             [
                 tax_domain,
                 [

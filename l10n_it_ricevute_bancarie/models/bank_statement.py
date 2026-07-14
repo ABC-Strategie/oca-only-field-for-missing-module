@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo import models
-from odoo.osv import expression
+from odoo.fields import Domain
 
 
 class AccountBankStatementLine(models.Model):
@@ -51,7 +51,7 @@ class AccountBankStatementLine(models.Model):
             ("statement_id", "=", False),
             ("account_id", "in", reconciliation_aml_accounts),
         ]
-        accr_domain = expression.AND([accr_domain, generic_domain])
+        accr_domain = Domain.AND([accr_domain, generic_domain])
         accr_res = self.env["account.move.line"].search(
             accr_domain, offset=offset, limit=limit, order="date_maturity asc, id asc"
         )
@@ -68,7 +68,7 @@ class AccountBankStatementLine(models.Model):
             ("statement_id", "=", False),
             ("account_id", "in", reconciliation_aml_accounts),
         ]
-        unsolved_domain = expression.AND([unsolved_domain, generic_domain])
+        unsolved_domain = Domain.AND([unsolved_domain, generic_domain])
         unsolved_res = self.env["account.move.line"].search(
             unsolved_domain,
             offset=offset,
