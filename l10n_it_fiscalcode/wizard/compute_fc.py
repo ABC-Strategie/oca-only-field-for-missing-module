@@ -4,7 +4,6 @@ import logging
 
 from odoo import _, api, fields, models
 from odoo.exceptions import UserError
-from odoo.osv import expression
 
 _logger = logging.getLogger(__name__)
 
@@ -57,9 +56,11 @@ class WizardComputeFc(models.TransientModel):
                 [("country_id", "=", it), ("code", "in", provinces)]
             )
 
-            res["domain"]["birth_province"] = expression.AND(
-                [res["domain"]["birth_province"], [("id", "in", province_ids.ids)]]
-            )
+            # onchange domains must stay plain lists (JSON-serializable):
+            # concatenation is an implicit AND
+            res["domain"]["birth_province"] = res["domain"]["birth_province"] + [
+                ("id", "in", province_ids.ids)
+            ]
 
             if len(province_ids) == 1:
                 res["value"]["birth_province"] = province_ids.id
@@ -85,9 +86,9 @@ class WizardComputeFc(models.TransientModel):
                     [("name", "in", names)]
                 )
 
-                res["domain"]["birth_city"] = expression.AND(
-                    [res["domain"]["birth_city"], [("id", "in", distinct_city_ids.ids)]]
-                )
+                res["domain"]["birth_city"] = res["domain"]["birth_city"] + [
+                    ("id", "in", distinct_city_ids.ids)
+                ]
 
         return res
 

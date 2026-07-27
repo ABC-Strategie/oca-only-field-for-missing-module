@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
 
 from odoo import fields, models
-from odoo.osv import expression
+from odoo.fields import Domain
 
 
 class SelectManuallyDeclarations(models.TransientModel):
@@ -28,7 +28,7 @@ class SelectManuallyDeclarations(models.TransientModel):
                 ("date_start", "<=", invoice.invoice_date),
                 ("date_end", ">=", invoice.invoice_date),
             ]
-            domain = expression.AND([domain, date_domain])
+            domain = Domain.AND([domain, date_domain])
         return declaration_model.search(domain)
 
     declaration_ids = fields.Many2many(
