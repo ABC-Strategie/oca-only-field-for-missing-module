@@ -22,7 +22,3 @@ class StockPickingTransportReason(models.Model):
         translate=True,
     )
     note = fields.Html(string="Internal note")
-
-    _sql_constraints = [
-        ("name_uniq", "unique(name)", "This reason of transport already exists!")
-    ]

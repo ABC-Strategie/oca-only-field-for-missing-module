@@ -22,13 +22,3 @@ class AccountPaymentMethod(models.Model):
         """This method is designed to be inherited in the SEPA modules"""
         self.ensure_one()
         raise UserError(_("No XSD file path found for payment method '%s'") % self.name)
-
-    _sql_constraints = [
-        (
-            # Extending this constraint from account_payment_mode
-            "code_payment_type_unique",
-            "unique(code, payment_type, pain_version)",
-            "A payment method of the same type already exists with this code"
-            " and PAIN version",
-        )
-    ]

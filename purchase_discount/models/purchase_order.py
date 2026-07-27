@@ -40,14 +40,6 @@ class PurchaseOrderLine(models.Model):
 
     discount = fields.Float(string="Discount (%)", digits="Discount")
 
-    _sql_constraints = [
-        (
-            "discount_limit",
-            "CHECK (discount <= 100.0)",
-            "Discount must be lower than 100%.",
-        )
-    ]
-
     def _get_discounted_price_unit(self):
         """Inheritable method for getting the unit price after applying
         discount(s).

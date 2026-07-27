@@ -55,14 +55,6 @@ class StockDeliveryNoteType(models.Model):
     )
     note = fields.Html(string="Internal note")
 
-    _sql_constraints = [
-        (
-            "name_uniq",
-            "unique(name, company_id)",
-            "This delivery note type already exists!",
-        )
-    ]
-
     def goto_sequence(self, **kwargs):
         self.ensure_one()
 

@@ -25,22 +25,9 @@ class AccountRCTypeTax(models.Model):
     company_id = fields.Many2one(
         "res.company", string="Company", related="rc_type_id.company_id", store=True
     )
-    _sql_constraints = [
-        (
-            "purchase_sale_tax_uniq",
-            "unique (rc_type_id,purchase_tax_id,sale_tax_id)",
-            "Tax mappings from Purchase Tax to Sale Tax "
-            "can be defined only once per Reverse Charge Type.",
-        ),
-        (
-            "original_purchase_sale_tax_uniq",
-            "unique (rc_type_id,original_purchase_tax_id,purchase_tax_id,sale_tax_id)",
-            "Tax mappings from Original Purchase Tax to Purchase Tax to Sale Tax "
-            "can be defined only once per Reverse Charge Type.",
-        ),
-    ]
 
     # @api.constrains(
+
     #     "original_purchase_tax_id",
     #     "rc_type_id",
     # )

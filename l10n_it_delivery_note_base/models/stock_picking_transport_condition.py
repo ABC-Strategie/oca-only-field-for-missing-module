@@ -38,7 +38,3 @@ class StockPickingTransportCondition(models.Model):
     #
 
     note = fields.Html(string="Internal note")
-
-    _sql_constraints = [
-        ("name_uniq", "unique(name)", "This condition of transport already exists!")
-    ]

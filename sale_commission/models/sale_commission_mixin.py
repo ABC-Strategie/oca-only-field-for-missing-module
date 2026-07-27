@@ -86,14 +86,6 @@ class SaleCommissionLineMixin(models.AbstractModel):
     )
     _rec_name = "agent_id"
 
-    _sql_constraints = [
-        (
-            "unique_agent",
-            "UNIQUE(object_id, agent_id)",
-            "You can only add one time each agent.",
-        )
-    ]
-
     object_id = fields.Many2one(
         comodel_name="sale.commission.mixin",
         ondelete="cascade",

@@ -102,14 +102,6 @@ class FatturaPAAttachmentIn(models.Model):
         readonly=True,
     )
 
-    _sql_constraints = [
-        (
-            "ftpa_attachment_in_name_uniq",
-            "unique(att_name)",
-            "The name of the e-bill file must be unique!",
-        )
-    ]
-
     # @api.depends("in_invoice_ids.e_invoice_validation_error")
     # def _compute_e_invoice_validation_error(self):
     #     for att in self:

@@ -50,14 +50,6 @@ class FatturaPAAttachment(models.Model):
     sending_date = fields.Datetime("Sent Date", readonly=True)
     delivered_date = fields.Datetime(readonly=True)
 
-    _sql_constraints = [
-        (
-            "ftpa_attachment_out_name_uniq",
-            "unique(att_name)",
-            "The name of the e-invoice file must be unique!",
-        )
-    ]
-
     # @api.model
     # def get_file_vat(self):
     #     company = self.env.company

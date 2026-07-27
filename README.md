@@ -19,3 +19,15 @@ Una volta completata la migrazione, in un secondo momento verranno installati i 
 ## Nota d'uso
 
 Questo repository va inteso come strumento transitorio legato a uno specifico intervento di migrazione, non come sostituto permanente dei moduli OCA originali.
+
+## Odoo 19 — cleanup `_sql_constraints`
+
+Nei gusci sono stati **rimossi** gli attributi `_sql_constraints` ereditati dal codice OCA originale.
+
+Motivo:
+
+- in Odoo 19 `_sql_constraints` **non è più supportato** (warning a ogni boot: usare `models.Constraint`);
+- i gusci non devono reintrodurre regole di business OCA, solo campi/modelli minimi per la migrazione;
+- eventuali constraint UNIQUE/CHECK già presenti sul database restano a livello PostgreSQL e non dipendono da questo attributo Python.
+
+Non convertire a `models.Constraint` nei gusci: i vincoli torneranno (se servono) con i moduli OCA reali post-migrazione.
