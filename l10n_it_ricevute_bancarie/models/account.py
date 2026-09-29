@@ -88,12 +88,16 @@ class AccountMove(models.Model):
         states={"draft": [("readonly", False)]},
     )
 
-    @api.model
-    def create(self, vals):
-        invoice = super().create(vals)
-        if not invoice.riba_partner_bank_id:
-            invoice._onchange_riba_partner_bank_id()
-        return invoice
+    @api.model_create_multi
+    def create(self, vals_list):
+        # In 19 create riceve sempre una lista: la conferma di una fattura con risconti
+        # (account_accountant._generate_deferred_entries) crea piu' scritture insieme e
+        # l'onchange, che lavora su un record solo, andava in "Expected singleton".
+        invoices = super().create(vals_list)
+        for invoice in invoices:
+            if not invoice.riba_partner_bank_id:
+                invoice._onchange_riba_partner_bank_id()
+        return invoices
 
     @api.onchange("partner_id", "invoice_payment_term_id", "move_type")
     def _onchange_riba_partner_bank_id(self):

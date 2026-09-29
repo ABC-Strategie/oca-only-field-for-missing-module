@@ -9,7 +9,7 @@
 
 {
     "name": "ITA - Ricevute bancarie",
-    "version": "19.0.0.0.1",
+    "version": "19.0.0.0.2",
     "development_status": "Beta",
     "author": "Odoo Community Association (OCA)",
     "category": "Localization/Italy",
@@ -27,8 +27,11 @@
     "data": [
         # "data/riba_sequence.xml",
         # "report/report.xml",
-        # "security/ir.model.access.csv",
-        # "security/riba_security.xml",
+        # I permessi servono anche senza viste: gli override su account.move e sulle
+        # riconciliazioni leggono i modelli riba.* e senza ACL annullare una fattura o
+        # registrare un pagamento dava AccessError a tutti gli utenti.
+        "security/ir.model.access.csv",
+        "security/riba_security.xml",
         # "views/wizard_accreditation.xml",
         # "views/wizard_unsolved.xml",
         # "views/riba_view.xml",
