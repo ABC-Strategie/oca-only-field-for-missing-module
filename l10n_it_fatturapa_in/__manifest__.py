@@ -8,7 +8,7 @@
 
 {
     "name": "ITA - Fattura elettronica - Ricezione",
-    "version": "19.0.0.0.1",
+    "version": "19.0.0.0.2",
     "development_status": "Beta",
     "category": "Localization/Italy",
     "summary": "Ricezione fatture elettroniche",
@@ -29,8 +29,13 @@
         # "wizard/wizard_import_fatturapa_view.xml",
         # "wizard/link_to_existing_invoice.xml",
         # "views/company_view.xml",
-        # "security/ir.model.access.csv",
-        # "security/rules.xml",
+        # Permessi e regola multi-azienda: fields.py legge fatturapa.attachment.in su ogni
+        # decimale delle fatture importate e senza ACL bozza/duplica davano AccessError.
+        "security/ir.model.access.csv",
+        "security/rules.xml",
+        # Vista 19 minima: il file e-fattura importato in "Altre informazioni", come in v16
+        # (la vista OCA views/account_view.xml non e' compatibile con la 19).
+        "views/account_move_view.xml",
     ],
     "installable": True,
 }

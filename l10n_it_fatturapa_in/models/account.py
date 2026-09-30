@@ -12,6 +12,14 @@ class AccountMove(models.Model):
     fatturapa_attachment_in_id = fields.Many2one(
         "fatturapa.attachment.in", "E-bill Import File", ondelete="restrict", copy=False
     )
+    # Migrazione 19: per scaricare l'XML dell'e-fattura dalla fattura (fatturapa.attachment.in
+    # eredita ir.attachment con _inherits). I related si leggono come sudo.
+    fatturapa_attachment_in_datas = fields.Binary(
+        related="fatturapa_attachment_in_id.datas", string="E-bill XML File"
+    )
+    fatturapa_attachment_in_name = fields.Char(
+        related="fatturapa_attachment_in_id.name", string="E-bill XML File Name"
+    )
     inconsistencies = fields.Text("Import Inconsistencies", copy=False)
     e_invoice_line_ids = fields.One2many(
         "einvoice.line", "invoice_id", string="Lines Detail", readonly=True, copy=False

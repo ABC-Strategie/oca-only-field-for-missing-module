@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- Migrazione 19: la vista OCA view_invoice_form_fatturapa_in (views/account_view.xml)
+         non e' compatibile con la 19 ed e' disattivata. Qui si riporta solo il file e-fattura
+         importato in "Altre informazioni", dove lo mostrava la v16. -->
+    <record id="view_move_form_fatturapa_in_legacy" model="ir.ui.view">
+        <field name="name">account.move.form.fatturapa.in.legacy</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='accounting_info_group']" position="inside">
+                <field
+                    name="fatturapa_attachment_in_id"
+                    string="File importato e-fattura"
+                    readonly="1"
+                    invisible="not fatturapa_attachment_in_id"
+                />
+                <field name="fatturapa_attachment_in_name" invisible="1" />
+                <field
+                    name="fatturapa_attachment_in_datas"
+                    string="File XML e-fattura"
+                    filename="fatturapa_attachment_in_name"
+                    readonly="1"
+                    invisible="not fatturapa_attachment_in_id"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -23,8 +23,11 @@ def get_digits(self, env):
 
 
 def convert_to_cache(self, value, record, validate=True):
-    if record._name in ("account.move", "account.move.line"):
-        e_invoice = record.fatturapa_attachment_in_id
+    # Migrazione 19: solo record singoli (con piu' record insieme dava "Expected singleton")
+    # e lettura come sudo: e' una lettura tecnica della precisione, non deve dipendere dai
+    # permessi dell'utente su fatturapa.attachment.in.
+    if record._name in ("account.move", "account.move.line") and len(record) == 1:
+        e_invoice = record.sudo().fatturapa_attachment_in_id
         if e_invoice:
             # The invoice [line] has been created by importing an e-invoice.
             # If a different precision has been used,
