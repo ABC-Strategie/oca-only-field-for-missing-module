@@ -18,11 +18,5 @@
     "data": [
         # "views/l10n_it_website_portal_fatturapa_templates.xml"
     ],
-    "assets": {
-        # "web.assets_frontend": [
-            # "l10n_it_website_portal_fatturapa/static/"
-            # "src/js/l10n_it_website_portal_fatturapa.js",
-        # ],
-    },
     "auto_install": True,
 }

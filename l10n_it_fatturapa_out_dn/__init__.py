@@ -1,1 +1,1 @@
-from . import wizard
+from . import __manifest__

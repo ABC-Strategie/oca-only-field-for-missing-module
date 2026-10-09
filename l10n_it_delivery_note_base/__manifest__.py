@@ -30,5 +30,4 @@
         # "views/stock_picking_transport_method.xml",
         # "views/stock_picking_transport_reason.xml",
     ],
-    "post_init_hook": "post_init_hook",
 }

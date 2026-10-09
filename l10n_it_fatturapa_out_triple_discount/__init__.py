@@ -1,1 +1,1 @@
-from . import wizards
+from . import __manifest__

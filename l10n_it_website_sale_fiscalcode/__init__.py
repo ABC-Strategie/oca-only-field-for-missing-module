@@ -1,3 +1,1 @@
-# Copyright 2017 Nicola Malcontenti - Agile Business Group
-
-from . import controllers
+from . import __manifest__

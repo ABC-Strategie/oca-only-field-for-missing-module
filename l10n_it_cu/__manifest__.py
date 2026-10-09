@@ -21,7 +21,7 @@
     ],
     "data": [
         "security/ir.model.access.csv",
-        "wizard/wizard_cu_file_import_ade_protocol_view.xml",
+        # "wizard/wizard_cu_file_import_ade_protocol_view.xml",
         "data/account_cu_statement_type.xml",
         # "views/account_cu_statement.xml",
         # "views/account_cu_se_partner.xml",

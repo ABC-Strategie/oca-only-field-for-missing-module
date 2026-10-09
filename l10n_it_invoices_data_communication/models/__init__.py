@@ -1,1 +1,4 @@
-from . import communication, account_invoice, account, res_country
+from . import account
+from . import account_invoice
+from . import communication
+from . import res_country
